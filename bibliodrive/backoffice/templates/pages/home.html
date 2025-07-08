@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/titlecards.css' %}">
+{% endblock %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur notre bibliothèque en ligne</h1>
+
+    <hr>
+
+    <p>Bienvenue sur Badgerbrary.com, votre bibliothèque en ligne idéale pour les amoureux de la lecture ! Découvrez un vaste choix d'ouvrages, allant des auteurs classiques aux trésors littéraires contemporains. Avec Badgerbrary, vous avez accès à une collection riche et diversifiée de livres, que vous pouvez réserver facilement et lire à votre rythme. Que vous soyez passionné de romans, de poésie, ou de philosophie, notre plateforme met à votre disposition des œuvres incontournables à portée de clic. Plongez dans l'univers des grands classiques, réservez vos livres préférés et profitez d'une expérience de lecture inédite, à la fois pratique et enrichissante. Explorez Badgerbrary.com dès maintenant et faites de chaque lecture un voyage unique.</p>
+    
+    <hr>
+    
+    <p>Nos coup de coeur:</p>
+
+    <div class="container">
+		
+        <div class="row mb-5">
+
+            {% for title in titles  %}
+                {% for author in title.author.all%}       
+                    <div class="col-md-4 mb-4 d-flex">
+                        <div class="card pt-3 pb-4">
+
+                            <div class="img-cont">
+                                {% if title.cover == null or title.cover == '' %}
+                                    <img src='{{ MEDIA_URL }}images/nocover.jpg' class="list-cover" alt="book cover">
+                                {% else %}
+                                    <img src='{{ title.cover.url }}' class="list-cover" alt="...">
+                                {% endif %}
+                            </div>
+
+                            <div class="card-body h-100">
+                                <h5 class="card-title">{{ title.title }}</h5>
+                                <p class="card-text title-small-infos"><small>
+                                    {{ title.year_published }}
+                                    {% for author in title.author.all%}
+                                    <span> ,<span>
+                                    <span>
+                                        <a href="/auteurs/{{ author.au_id }}" class="primary" title="Detail">{{ author.author }}</a>
+                                    </span>
+                                    {% endfor %}
+                                </small></p>
+                                <p class="card-text title-resume">{{ title.description }}</p>
+                                <div class="btn-ctn">
+                                    <a href="/titres/{{ title.isbn }}" class="btn btn-primary" type="button" title="Detail">Plus d'infos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+
+	</div>
+{% endblock %}

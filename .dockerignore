@@ -1,0 +1,28 @@
+# Add all files to ignore during image build here
+
+# packages (installed again)
+
+Lib/site-packages
+bibliodrive/node_modules
+
+# Git
+.gitignore
+
+# venv
+
+Scripts
+pyvenv.cfg
+package-lock.json
+
+# unused
+
+Include
+README.txt
+
+# cache
+
+bibliodrive/backoffice/**pycache**
+
+# db
+
+db.sqlite3

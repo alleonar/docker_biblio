@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Description de la page" />
+    <meta name="author" content="Auteur" />
+    <meta name="keywords" content="mot-clé1, mot-clé2, mot-clé3" />
+    <title>
+      {% block title %}La bibliothèque d'oncle Blaireau{% endblock %}
+    </title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS (optionnel) -->
+    {% comment %}
+    <link rel="stylesheet" href="../static/css/style.css" />
+    {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    {% comment %} Calendar {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.js" defer></script>
+
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary p-4 mb-3 navbar-dark">
+      <a class="navbar-brand text-white" href="/">Badgerbrary.com</a>
+      <button
+        class="navbar-toggler icon-color"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span><i class="fa-solid fa-bars icon-color"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link text-white {% if active_nav == 'authors'%}active{% endif %}"
+              href="/auteurs"
+              >Auteurs</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white {% if active_nav == 'publishers'%}active{% endif %}"
+              href="/editeurs"
+              >Editeurs</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white {% if active_nav == 'titles'%}active{% endif %}"
+              href="/titres"
+              >Livres</a
+            >
+          </li>
+          <li class="nav-item">
+            {% if not request.user.is_authenticated %}
+            <a
+              class="nav-link text-white {% if active_nav == 'authentication'%}active{% endif %}"
+              href="/connexion"
+              >Connexion</a
+            >
+            {% else %}
+            <a class="nav-link text-white {% if active_nav == 'profile'%}active{% endif %}" href="/profile">Mon Profil</a>
+            {% endif %}
+          </li>
+          {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/logout">Deconnexion</a>
+            </li>
+          {% endif %}
+          {% if request.user.is_superuser %}
+            <li class="nav-item">
+              <a
+                class="nav-link text-white {% if active_nav == 'administration'%}active{% endif %}"
+                href="/administration"
+                >Administration</a
+              >
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Content Block -->
+    <div class="container mt-4">{% block content %}{% endblock %}</div>
+
+    {% if page_obj and page_obj.paginator.num_pages > 1 %}
+      <hr>
+
+      <ul class="pagination justify-content-center">
+
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1">Première</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Précédente</a>
+          </li>
+        {% endif %}
+
+          <li class="page-item disabled">
+            <span class="page-link"> Page {{ page_obj.number }} de {{page_obj.paginator.num_pages}}</span>
+          </li>
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number}}">Suivante</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Dernière</a>
+          </li>
+        {% endif %}
+
+      </ul>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white mt-5">
+      <div class="text-center p-3">
+        © 2024 Badger's Library. Tous droits réservés.
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

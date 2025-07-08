@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Reservation: {{title.title}}{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/reservations.css' %}">
+    <script type='module' src="{% static 'js/calendar.js' %}"></script>
+{% endblock %}
+
+
+
+{% comment %} 
+TODO:
+- faire le formulaire et l'insertion en bdd
+- verifié fonctionnement du nombre de resa max
+- modifié le front pour que ce soit plus joli 
+{% endcomment %}
+{% block content %}
+
+    <h1 class="mb-4">Réservation {{title.title}}</h1>
+
+    <p> Vous êtes sur la page de réservation. Souvenez vous que nous sommes fermés les dimanches et fériés !</p>
+
+    <hr>
+
+    {% if user_resa|length >= 3 %}
+
+    <p>Désolé, mais vous avez déjà atteint le nombre maximum de réservation.</p>
+
+    <ul>
+        {% for resa in user_resa %}
+        <li>{{resa.title.title}} (réservé du {{resa.start }} au {{ resa.end }})</li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+
+        <div class="calendar-container">
+            
+            <div class="img-cont">
+                {% if title.cover == null or title.cover == '' %}
+                    <img src='{{ MEDIA_URL }}images/nocover.jpg' class="list-cover" alt="book cover">
+                {% else %}
+                    <img src='{{ title.cover.url }}' class="list-cover" alt="...">
+                {% endif %}
+            </div>
+
+
+            <div id="calendar"></div>
+
+            <form method="post" class="my-4">
+                {% csrf_token %}
+    
+                <div class="form-group">
+                    <p>Début </p>
+                    {{ resa_form.start.errors }} 
+                    {{ resa_form.start}}
+                </div>
+    
+                <div class="form-group">
+                    <p>Fin </p>
+                    {{ resa_form.end.errors }} 
+                    {{ resa_form.end}}
+                </div>
+    
+                {% comment %} Hidden fields {% endcomment %}
+                {{ resa_form.user}}
+                {{ resa_form.title}}
+                {{ resa_form.close}}
+
+                <div class="form-submit pt-4">
+                    <button type="submit" class="btn btn-primary">Réserver</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="title_resa_data" data-titleresa="{{ title_resa }}"></div>
+
+    {% endif %}
+
+{% endblock %}

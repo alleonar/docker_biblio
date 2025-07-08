@@ -1,0 +1,43 @@
+.card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limite à deux lignes */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Ajoute "..." à la fin du texte si trop long */
+    overflow: hidden; /* Masque le contenu qui dépasse du conteneur */
+    height: 26%;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.title-resume {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 34%;
+}
+
+.btn-ctn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 3%;
+}
+
+.book-card-btn {
+    display: inline-block;
+    margin: auto;
+}
+
+.img-cont {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.list-cover {
+    width: 200px; 
+    height: 300px;
+}

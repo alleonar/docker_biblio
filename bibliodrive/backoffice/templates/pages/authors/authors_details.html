@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{author.author}}{% endblock %}
+
+{% block content %}
+    <h1>{{author.author}}</h1>
+    <p>Date de naissance: {{author.year_born}}</p>
+    <br/>
+    <p>Nombre de livres : {{ author.titles.count }}</p>
+    <h3>Ses oeuvres</h3>
+    <div class="table-responsive mt-3">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-2">Année</th>
+                    <th scope="col" class="col-4">Titres</th>
+                    <th scope="col" class="col-4">Genre</th>
+                    <th scope="col" class="col-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for title in author.titles.all %}
+                    <tr>
+                        <th scope="row">{{ title.year_published }}</th>
+                        <td>{{ title.title }}</td>
+                        <td>{{ title.subject}}</td>
+                        <td><a href="/titres/{{ title.isbn }}" class="btn btn-primary" type="button" title="Detail">Plus d'infos</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

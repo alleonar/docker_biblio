@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block title %}Connexion{% endblock %} 
+
+{% block content %}
+  <h1>Connectez vous</h1>
+
+  <form method="post" class="my-4">
+    {% csrf_token %} 
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.errors }} 
+        {{ field.label_tag }} 
+        {{ field }}
+      </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
+
+  <p>Pas encore de compte ? <a href="/inscription/">Créez en un !</a></p>
+
+  {% if messages %} 
+    {% for message in messages %}
+      <div class="alert alert-info" role="alert">{{ message }}</div>
+    {% endfor %} 
+  {% endif %} 
+{% endblock %}

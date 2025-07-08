@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{title.title}}{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/titledetails.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">{{title.title}}</h1>
+
+    {% if title.cover == null or title.cover == '' %}
+        <img src='{{ MEDIA_URL }}images/nocover.jpg' class="card-img-top nocover-details pb-3" alt="book cover">
+    {% else %}
+        <img src='{{ title.cover.url }}' class="card-img-top cover-details pb-3" alt="...">
+    {% endif %}
+
+    {% if title.author.count == 1 %}
+        {% for author in title.author.all %}
+            <p>
+                Auteur: 
+                <a href="/auteurs/{{ author.au_id }}" class="primary" title="Detail">{{ author.author }}</a>
+            </p>
+
+        {% endfor %}
+    {% else %}
+        <p> Auteurs:
+            {% for author in title.author.all %}
+                {% if forloop.first %}
+                    <span>
+                        <a href="/auteurs/{{ author.au_id }}" class="primary" title="Detail">{{ author.author }}</a>
+                    </span>
+                {% else %}
+                    <span> ,</span>
+                    <span>
+                        <a href="/auteurs/{{ author.au_id }}" class="primary" title="Detail">{{ author.author }}
+                    </span>
+                {% endif %}
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    <p>Editeur: <a href="/editeurs/{{ title.pubid.pubid }}" class="primary" title="Detail">{{ title.pubid.name}}</a></p>
+    <p>Première édition: {{ title.year_published }}</p>
+    <p>Genre: {{ title.subject }}</p>
+    <p>Résumé: {{ title.description }}</p>
+
+    <hr>
+
+    <p>Notre avis:</p>
+    <p>{{ title.notes }}</p>
+    <p>{{ title.comments }}</p>
+
+    <hr>
+
+    {% if  request.user.is_authenticated %}
+        <a href="/titres/reservation/{{ title.isbn }}" class="btn btn-primary" type="button" title="Reservation">Réserver ce livre</a>
+    {% endif%}
+
+{% endblock %}

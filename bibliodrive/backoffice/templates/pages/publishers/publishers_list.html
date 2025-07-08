@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Editeurs{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur la page des Editeurs</h1>
+    <p>Ceci est le contenu principal de la page des editeurs.</p>
+    <br/>
+
+    <div class="table-responsive mt-3">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-2">#</th>
+                    <th scope="col" class="col-4">Nom</th>
+                    <th scope="col" class="col-4">Compagnie</th>
+                    <th scope="col" class="col-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pub in publishers %}
+                    <tr>
+                        <th scope="row">{{ pub.pubid }}</th>
+                        <td>{{ pub.name}}</td>
+                        <td>{{ pub.company_name}}</td>
+                        <td><a href="/editeurs/{{ pub.pubid }}" class="btn btn-primary" type="button" title="Detail">Plus d'infos</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

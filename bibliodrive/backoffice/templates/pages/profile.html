@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block title %}Profile{% endblock %} 
+
+{% block content %}
+    <h3>{{user.first_name}} {{user.last_name}}</h1>
+
+    <hr>
+
+    <h6>Vos réservations en cours:</h3>
+
+    <ul>
+    {% for resa in active_resa %}
+        <li>{{resa.title.title}}  <i>(emprunté du {{resa.start}} au {{resa.end}})</i></li>
+    {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h6>Vos réservations passées:</h3>
+
+    <ul>
+    {% for resa in past_resa %}
+        <li>{{resa.title.title}}  <i>(emprunté du {{resa.start}} au {{resa.end}})</i></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

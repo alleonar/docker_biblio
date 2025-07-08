@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  web:
+    image: bibliodrive:latest
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - db_data:/usr/src/app/bibliodrive/db-archive
+    environment:
+      - PYTHONUNBUFFERED=1
+
+volumes:
+  db_data: 

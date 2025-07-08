@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/titlecards.css' %}">
+{% endblock %}
+
+{% block title %}Livres{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur la page des Livres</h1>
+    <p>Ceci est le contenu principal de la page des livres.</p>
+    <br/>
+
+    <div class="container">
+		
+        <div class="row mb-5">
+
+            {% for title in titles  %}
+                {% for author in title.author.all%}       
+                    <div class="col-md-4 mb-4 d-flex">
+                        <div class="card pt-3 pb-4">
+                            
+                            <div class="img-cont">
+                                {% if title.cover == null or title.cover == '' %}
+                                    <img src='{{ MEDIA_URL }}images/nocover.jpg' class="list-cover" alt="book cover">
+                                {% else %}
+                                    <img src='{{ title.cover.url }}' class="list-cover" alt="...">
+                                {% endif %}
+                            </div>
+
+                            <div class="card-body h-100">
+                                <h5 class="card-title">{{ title.title }}</h5>
+                                <p class="card-text title-small-infos"><small>
+                                    {{ title.year_published }}
+                                    {% for author in title.author.all%}
+                                    <span> ,<span>
+                                    <span>
+                                        <a href="/auteurs/{{ author.au_id }}" class="primary" title="Detail">{{ author.author }}</a>
+                                    </span>
+                                    {% endfor %}
+                                </small></p>
+                                <p class="card-text title-resume">{{ title.description }}</p>
+                                <div class="btn-ctn">
+                                    <a href="/titres/{{ title.isbn }}" class="btn btn-primary" type="button" title="Detail">Plus d'infos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% comment %} 
+Base bootsrap template from: https://bootstraptemple.com/p/bootstrap-add-edit-and-delete-buttons
+Thanks for your amazing work !
+{% endcomment %}
+
+{% block title %}Auteurs{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur la page des Auteurs</h1>
+    <p>Parcourez la liste de tous vos ecrivains favoris.</p>
+    <br/>
+
+    <div class="table-responsive mt-3">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-2">#</th>
+                    <th scope="col" class="col-4">Auteurs</th>
+                    <th scope="col" class="col-4">Né en</th>
+                    <th scope="col" class="col-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in authors %}
+                    <tr>
+                        <th scope="row">{{ author.au_id }}</th>
+                        <td>{{ author.author}}</td>
+                        <td>{{ author.year_born}}</td>
+                        <td><a href="/auteurs/{{ author.au_id }}" class="btn btn-primary" type="button" title="Detail">Bibliographie</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

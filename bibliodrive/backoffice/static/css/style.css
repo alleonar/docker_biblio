@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh !important;
+    font-family: 'Roboto', sans-serif
+}
+
+.navbar-brand {
+    font-size: 2em;
+}
+
+.icon-color {
+    color: rgb(255, 255, 255, 0.8) !important;
+}
+
+.active {
+    color: darkslategrey !important
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+footer {
+    padding-bottom: 50px;
+}

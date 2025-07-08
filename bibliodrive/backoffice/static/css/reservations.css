@@ -1,0 +1,21 @@
+.calendar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.img-cont {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.list-cover {
+    width: 200px; 
+    height: 300px;
+}

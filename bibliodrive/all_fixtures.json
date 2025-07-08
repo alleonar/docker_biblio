@@ -1,0 +1,399 @@
+[
+    {
+        "model": "backoffice.authors",
+        "pk": 1,
+        "fields": {
+            "author": "J.K. Rowling",
+            "year_born": 1965
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 2,
+        "fields": {
+            "author": "George Orwell",
+            "year_born": 1903
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 3,
+        "fields": {
+            "author": "J.R.R. Tolkien",
+            "year_born": 1892
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 4,
+        "fields": {
+            "author": "Agatha Christie",
+            "year_born": 1890
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 5,
+        "fields": {
+            "author": "F. Scott Fitzgerald",
+            "year_born": 1896
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 6,
+        "fields": {
+            "author": "Harper Lee",
+            "year_born": 1926
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 7,
+        "fields": {
+            "author": "Ernest Hemingway",
+            "year_born": 1899
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 8,
+        "fields": {
+            "author": "Mark Twain",
+            "year_born": 1835
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 9,
+        "fields": {
+            "author": "Jane Austen",
+            "year_born": 1775
+        }
+    },
+    {
+        "model": "backoffice.authors",
+        "pk": 10,
+        "fields": {
+            "author": "Leo Tolstoy",
+            "year_born": 1828
+        }
+    },
+    {
+        "model": "backoffice.publishers",
+        "pk": 1,
+        "fields": {
+            "name": "Penguin Random House",
+            "company_name": "Penguin Random House LLC",
+            "address": "1745 Broadway",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10019",
+            "telephone": "+1 212-366-2000",
+            "fax": "+1 212-366-1503",
+            "comments": "One of the largest publishers worldwide."
+        }
+    },
+    {
+        "model": "backoffice.publishers",
+        "pk": 2,
+        "fields": {
+            "name": "HarperCollins",
+            "company_name": "HarperCollins Publishers",
+            "address": "195 Broadway",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10007",
+            "telephone": "+1 212-207-7000",
+            "fax": "+1 212-207-7100",
+            "comments": "Global publishing company."
+        }
+    },
+    {
+        "model": "backoffice.publishers",
+        "pk": 3,
+        "fields": {
+            "name": "Macmillan",
+            "company_name": "Macmillan Publishers",
+            "address": "175 Fifth Avenue",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10010",
+            "telephone": "+1 646-307-5151",
+            "fax": "+1 646-307-5152",
+            "comments": "International publisher of books."
+        }
+    },
+    {
+        "model": "backoffice.publishers",
+        "pk": 4,
+        "fields": {
+            "name": "Simon & Schuster",
+            "company_name": "Simon & Schuster, Inc.",
+            "address": "1230 Avenue of the Americas",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10020",
+            "telephone": "+1 212-698-7000",
+            "fax": "+1 212-698-7500",
+            "comments": "An American publishing company."
+        }
+    },
+    {
+        "model": "backoffice.publishers",
+        "pk": 5,
+        "fields": {
+            "name": "Harlequin",
+            "company_name": "Harlequin Enterprises Limited",
+            "address": "22 Adelaide Street West",
+            "city": "Toronto",
+            "state": "ON",
+            "zip": "M5H 4E3",
+            "telephone": "+1 416-861-8000",
+            "fax": "+1 416-861-8001",
+            "comments": "Publisher specializing in romance novels."
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-1-4000-3347-1",
+        "fields": {
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "year_published": 1997,
+            "isbn": "978-1-4000-3347-1",
+            "pubid": 1,
+            "description": "A young wizard's first year at Hogwarts.",
+            "notes": "The first book in the Harry Potter series.",
+            "subject": "Fantasy",
+            "comments": "International bestseller.",
+            "author": [1]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-452-28423-4",
+        "fields": {
+            "title": "1984",
+            "year_published": 1949,
+            "isbn": "978-0-452-28423-4",
+            "pubid": 2,
+            "description": "A dystopian novel about totalitarianism.",
+            "notes": "A classic of political fiction.",
+            "subject": "Dystopia",
+            "comments": "A seminal work in dystopian literature.",
+            "author": [2]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-618-00222-3",
+        "fields": {
+            "title": "The Hobbit",
+            "year_published": 1937,
+            "isbn": "978-0-618-00222-3",
+            "pubid": 3,
+            "description": "A fantasy novel about Bilbo Baggins.",
+            "notes": "Prequel to The Lord of the Rings.",
+            "subject": "Fantasy",
+            "comments": "A highly influential fantasy novel.",
+            "author": [3]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-06-112241-5",
+        "fields": {
+            "title": "The Great Gatsby",
+            "year_published": 1925,
+            "isbn": "978-0-06-112241-5",
+            "pubid": 4,
+            "description": "A novel about the American Dream.",
+            "notes": "A classic American novel.",
+            "subject": "Fiction",
+            "comments": "One of the defining works of the Jazz Age.",
+            "author": [4]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-06-093546-7",
+        "fields": {
+            "title": "To Kill a Mockingbird",
+            "year_published": 1960,
+            "isbn": "978-0-06-093546-7",
+            "pubid": 2,
+            "description": "A story of racial injustice in the American South.",
+            "notes": "Pulitzer Prize-winning novel.",
+            "subject": "Drama",
+            "comments": "A novel that addresses social issues.",
+            "author": [5]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-684-84328-5",
+        "fields": {
+            "title": "The Old Man and the Sea",
+            "year_published": 1952,
+            "isbn": "978-0-684-84328-5",
+            "pubid": 1,
+            "description": "A short novel about an old fisherman.",
+            "notes": "A tale of perseverance and struggle.",
+            "subject": "Adventure",
+            "comments": "Hemingway's Pulitzer Prize-winning work.",
+            "author": [6]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-394-51002-2",
+        "fields": {
+            "title": "To Kill a Mockingbird",
+            "year_published": 1960,
+            "isbn": "978-0-394-51002-2",
+            "pubid": 2,
+            "description": "A novel about racial injustice in the Deep South.",
+            "notes": "A classic novel by Harper Lee.",
+            "subject": "Historical Fiction",
+            "comments": "Pulitzer Prize-winning novel.",
+            "author": [5]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-1-56619-909-4",
+        "fields": {
+            "title": "1984",
+            "year_published": 1949,
+            "isbn": "978-1-56619-909-4",
+            "pubid": 3,
+            "description": "A dystopian novel about a totalitarian regime.",
+            "notes": "A critique of totalitarianism.",
+            "subject": "Dystopian",
+            "comments": "Orwell's most famous work.",
+            "author": [2]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-452-28425-8",
+        "fields": {
+            "title": "Pride and Prejudice",
+            "year_published": 1813,
+            "isbn": "978-0-452-28425-8",
+            "pubid": 4,
+            "description": "A romantic novel about manners and matrimonial machinations.",
+            "notes": "A social critique by Jane Austen.",
+            "subject": "Romance",
+            "comments": "One of the best-loved novels.",
+            "author": [7]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-670-03291-0",
+        "fields": {
+            "title": "The Great Gatsby",
+            "year_published": 1925,
+            "isbn": "978-0-670-03291-0",
+            "pubid": 5,
+            "description": "A novel about the American Dream and lost love.",
+            "notes": "A tragic love story.",
+            "subject": "Tragedy",
+            "comments": "Fitzgerald's portrayal of the Jazz Age.",
+            "author": [4]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-7432-7356-5",
+        "fields": {
+            "title": "Life of Pi",
+            "year_published": 2001,
+            "isbn": "978-0-7432-7356-5",
+            "pubid": 1,
+            "description": "A philosophical adventure novel.",
+            "notes": "A novel of survival.",
+            "subject": "Adventure",
+            "comments": "Won the Man Booker Prize.",
+            "author": [8]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-14-018739-6",
+        "fields": {
+            "title": "The Catcher in the Rye",
+            "year_published": 1951,
+            "isbn": "978-0-14-018739-6",
+            "pubid": 2,
+            "description": "A story about teenage rebellion.",
+            "notes": "A cult classic.",
+            "subject": "Coming-of-Age",
+            "comments": "J.D. Salinger's best-known work.",
+            "author": [9]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-618-61963-7",
+        "fields": {
+            "title": "The Hobbit",
+            "year_published": 1937,
+            "isbn": "978-0-618-61963-7",
+            "pubid": 3,
+            "description": "A fantasy adventure with hobbits and dragons.",
+            "notes": "A prequel to The Lord of the Rings.",
+            "subject": "Fantasy",
+            "comments": "A classic by Tolkien.",
+            "author": [3]
+        }
+    },
+    {
+        "model": "backoffice.titles",
+        "pk": "978-0-345-47291-2",
+        "fields": {
+            "title": "Fahrenheit 451",
+            "year_published": 1953,
+            "isbn": "978-0-345-47291-2",
+            "pubid": 4,
+            "description": "A dystopian novel about book burning.",
+            "notes": "A warning against censorship.",
+            "subject": "Dystopian",
+            "comments": "Ray Bradbury's most famous work.",
+            "author": [10]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "john_doe",
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "john.doe@example.com",
+            "password": "pbkdf2_sha256$870000$0eYgKCJfG2ylWharn4cFZC$HgI2p6oLbnKW2IocHjpJHIOUDLEkICZwlFgyb7cgw68=",
+            "is_staff": true,
+            "is_active": true,
+            "is_superuser": true,
+            "last_login": "2024-11-25T00:00:00Z",
+            "date_joined": "2024-11-25T00:00:00Z"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "jane_smith",
+            "first_name": "Jane",
+            "last_name": "Smith",
+            "email": "jane.smith@example.com",
+            "password": "pbkdf2_sha256$870000$0eYgKCJfG2ylWharn4cFZC$HgI2p6oLbnKW2IocHjpJHIOUDLEkICZwlFgyb7cgw68=",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "last_login": "2024-11-25T00:00:00Z",
+            "date_joined": "2024-11-25T00:00:00Z"
+        }
+    }
+]
